@@ -14,9 +14,9 @@ public class PostgresConnectionHelper {
 
     private static Connection connection;
     private static final String DRIVER = "org.postgresql.Driver";
-    public static final String URL = "jdbc:postgresql://localhost:5432/semesterwork1";
+    public static final String URL = "jdbc:postgresql://localhost:5432/firstsemesterwork";
     public static final String USER = "postgres";
-    public static final String PASSWORD = "postgres";
+    public static final String PASSWORD = "98elogon";
 
     public static Connection getConnection() {
         if (connection == null) {
