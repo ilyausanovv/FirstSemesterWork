@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "registrationServlet", urlPatterns = "/registration")
-public class RegistrationServlet extends HttpServlet {
+@WebServlet(name = "loginServlet", urlPatterns = "/login")
+public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getServletContext().getRequestDispatcher("/registration.html").forward(req, resp);
+        req.getServletContext().getRequestDispatcher("/login.html").forward(req, resp);
     }
 
     @Override
@@ -28,11 +28,14 @@ public class RegistrationServlet extends HttpServlet {
         HttpSession session = req.getSession();
 
         UserDaoImpl users = new UserDaoImpl();
-        if (users.userIsExist(username, password)) {
-            resp.sendRedirect("/registration");
+        
+        if(username.equals("") || password.equals("")) {
+            resp.sendRedirect("/errorlogin");
         } else {
-            if (users.saveUser(username, password)) {
+            if (users.userIsExist(username, password)) {
                 CookieHelper.cookieCheck(resp, username, cookieCheck, session);
+            } else {
+                resp.sendRedirect("/errorlogin");
             }
         }
     }

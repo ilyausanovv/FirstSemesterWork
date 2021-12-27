@@ -37,7 +37,7 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
     @Override
     public LinkedList<Commodity> getListOfCommoditiesInShoppingCartByUsername(String username) throws SQLException {
 
-        String sql = "SELECT id, name, description, image, price FROM commodities JOIN commodity_price ON commodity_price.commodity_id = commodity.id JOIN user_shoppingcart ON user_shoppingcart.commodity_id = commodity.id WHERE username = ?";
+        String sql = "SELECT id, name, description, image, price FROM commodities JOIN commodity_price ON commodity_price.commodity_id = commodities.id JOIN user_shoppingcart ON user_shoppingcart.commodity_id = commodities.id WHERE username = ?";
 
         try(PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, username);
