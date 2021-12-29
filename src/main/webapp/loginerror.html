@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Van Gogh Shop</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/styles/login.css">
+  <link rel="icon" type="image/svg" href="assets/icon.png">
+</head>
+<body>
+
+<style>
+  body {
+    background: #171515 url(assets/background.png);
+    color: #FFFFFF;
+  }
+</style>
+
+<header>
+  <img src="/assets/logo.png" alt="Van Gogh Shop" id="logo" style="margin-top: 50px">
+</header>
+<div class="login">
+  <h1>Sign in</h1>
+  <h3>Incorrect data entered</h3>
+  <form method="post" action="/login">
+    <label><input class="loginField" id="text" type="text" name="username" placeholder="Login"></label>
+    <label><input class="loginField" id="password" type="password" name="password" placeholder="Password"></label><br>
+    <label><input class="remember" name="remember" type="checkbox" value="check">Remember me?</label><br>
+    <button id="lgn" type="submit" class="btn">Sign in</button>
+    <div style="text-align: center">
+      <button id="lgn2" class="btn" style="border-radius: 15px"><a class='registration' href="/registration">Register!</a></button>
+    </div>
+  </form>
+</div>
+</body>
+</html>

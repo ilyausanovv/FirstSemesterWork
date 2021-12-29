@@ -6,7 +6,25 @@ public class Commodity {
     private String name;
     private String description;
     private String image;
-    private int price;
+    private double price;
+    private int countOfGrade;
+    private double rating;
+
+    public int getCountOfGrade() {
+        return countOfGrade;
+    }
+
+    public void setCountOfGrade(int countOfGrade) {
+        this.countOfGrade = countOfGrade;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
 
     public int getId() {
         return id;
@@ -40,7 +58,7 @@ public class Commodity {
         this.image = image;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 

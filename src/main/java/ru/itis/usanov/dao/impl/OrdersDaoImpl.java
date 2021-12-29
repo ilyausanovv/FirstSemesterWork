@@ -34,7 +34,7 @@ public class OrdersDaoImpl implements OrdersDao {
     @Override
     public List<Commodity> getLastOrderList(String username) throws SQLException {
 
-        String sql = "SELECT id, name, description, image, price, FROM commodities JOIN commodity_price ON commodity_price.commodity_id = commodities.id JOIN users_orders ON users_orders.commodity_id = commodities.id WHERE username = ? AND order_timestamp = ?";
+        String sql = "SELECT id, name, description, image, price, count_of_grades, rating FROM commodities JOIN commodity_rating ON commodity_rating.commodity_id = commodities.id JOIN users_orders ON users_orders.commodity_id = commodities.id WHERE username = ? AND order_timestamp = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             Timestamp timestamp = getLastTimestamp(username);
@@ -49,7 +49,7 @@ public class OrdersDaoImpl implements OrdersDao {
     @Override
     public int getCountOfOrder(String username) throws SQLException {
 
-        String sql = "SELECT id, name, description, image, price FROM commodities JOIN commodity_price ON commodity_price.commodity_id = commodities.id JOIN users_orders ON users_orders.commodity_id = commodity.id WHERE username = ?";
+        String sql = "SELECT id, name, description, image, price, count_of_grades, rating FROM commodities JOIN commodity_rating ON commodity_rating.commodity_id = commodities.id JOIN users_orders ON users_orders.commodity_id = commodities.id WHERE username = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, username);

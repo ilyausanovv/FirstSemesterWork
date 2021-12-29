@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Van Gogh Shop</title>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/styles/login.css">
+    <link rel="icon" type="image/svg" href="/assets/icon.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scripts/registration.js"></script>
 </head>
 <body>
-<h1>RegistrationPage</h1>
+<style>
+    body {
+        background: #171515 url(assets/background.png);
+        color: #FFFFFF;
+    }
+</style>
+<header>
+    <img src="/assets/logo.png" alt="Van Gogh Shop" id="logo" style="margin-top: 50px">
+</header>
+<div class="login">
+    <h1>Registration</h1>
+    <form method="post" action="/registration">
+        <label><input class="loginField" id="username" type="text" name="username" placeholder="Login" onblur="checkAll();"></label>
+        <p class="error" id="username-error" style="display: none; color: white">Login already taken!</p>
+        <p class="error" id="username-size-error" style="display: none; color: white">Login must contain only Latin letters, numbers, hyphens and underscores, be more than 3 and less than 16.</p>
+        <label><input class="loginField" id="password" type="password" name="password" placeholder="Password" onblur="checkAll();"></label><br>
+        <label><input class="loginField" id="secondPass" type="password" name="secondPass" placeholder="Password again" onblur="checkAll();"></label><br>
+        <p class="error" id="password-error" style="display: none; color: white">The passwords do not match or the password is too simple.<br>
+            Password must contain at least 6 characters and 1 number and contain only Latin letters.</p>
+        <label><input class="remember" name="remember" type="checkbox" value="check">Remember me?</label>
+        <button id="lgn" class="btn" style="border-radius: 15px; margin-bottom: 10px; margin-top: 10px">Register</button>
+        <div style="text-align: center;">
+           <button id="lgn2" class="btn" style="border-radius: 15px"><a class='loginText' href="/login">Sign in</a></button>
+        </div>
+    </form>
+</div>
 </body>
 </html>
